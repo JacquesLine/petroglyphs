@@ -17,7 +17,7 @@ data_dir = "/home/antoine/Documents/Petroglyphs/petroglyphs/"
 loader = Loader(classname = "weka.core.converters.ArffLoader")
 cls = Classifier(classname = "weka.classifiers.lazy.IBk", options = ["-K","5","-W","0","-X"])
 
-l1 = [100,200,300]
+l1 = [300]
 l2 = [5,10,15,20]
 results = []
 images = sys.argv[1:]

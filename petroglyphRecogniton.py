@@ -7,7 +7,7 @@ import cv2
 from graph import*
 
 """
-This function divides a pictures with several petroglyphs and retunr all the graphs of each petroglyph in a list of
+This function divides a pictures with several petroglyphs and return all the graphs of each petroglyph in a list of
 ntworkx graphs.
 It uses cv2 findContours function
 """
@@ -52,5 +52,12 @@ def petroglyphRecognition(name,k1,k2):
 		graph = skeletonToGraph("inter.png",k1,k2)
 		graphs.append(graph)
 
-return graphs
+	#Supression of smaller and meaningless graphs
+	endGraph = []
+
+	for graph in graphs:
+		if graph.number_of_edges()>=2:
+			endGraph.append(graph)
+
+return endGraph
 

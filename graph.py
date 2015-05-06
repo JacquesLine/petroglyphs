@@ -73,10 +73,7 @@ def skeletonToGraph(name,k1,k2):
 		opt_nodes.append((node.x,node.y))
 	graph.add_nodes_from(opt_nodes)
 	graph.add_edges_from(opt_edges)
-
-	"""for edge in edges:
-		plot(edge)
-	plt.show()"""
+	
 	
 	#Localisation of the barycenter
 	(bx,by)=barycenter(opt_nodes)
@@ -89,5 +86,6 @@ def skeletonToGraph(name,k1,k2):
 	with open("localisation.txt","a") as loc:
 	    loc.write(name)
 	    loc.write(str(squaresFoundNumber)+"\n")
-            
+  
 	return graph
+
