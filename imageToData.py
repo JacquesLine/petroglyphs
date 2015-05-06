@@ -25,7 +25,7 @@ def writeGraph(v,finalOutput):
    
 for image in sys.argv[1:]:
     im = cv2.imread(image)
-    skeletonFinal(im,300)
+    skeletonFinal(im,350,350)
     s_im = cv2.imread("dst.bmp")
     name = "Output/"+ os.path.basename(image[0:(len(image)-4)]) + ".png"
     cv2.imwrite(name, s_im)
@@ -36,7 +36,7 @@ noms=[]
 
 for image in l:
     nom = image.split("_")[0]
-    G=skeletonToGraph("Output/"+image,10,10)
+    G=skeletonToGraph("Output/"+image,20,20)
     v=creationVecteur(G)
     v["nom"]=nom
     data.append(v)
