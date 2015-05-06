@@ -10,6 +10,7 @@ import numpy as np
 import networkx as nx
 
 from graph_util import *
+from grid_util import *
 
 """
 This script transforms a skeleton of a picture into a networkx graph
@@ -76,5 +77,17 @@ def skeletonToGraph(name,k1,k2):
 	"""for edge in edges:
 		plot(edge)
 	plt.show()"""
-
+	
+	#Localisation of the barycenter
+	(bx,by)=barycenter(opt_nodes)
+	print(str(bx)+" , "+str(by))
+	thegrid=grid(imageW,imageH,10,10)
+	squaresFound, squaresFoundNumber = thegrid.isIn((bx,by))
+	print(squaresFoundNumber)
+	
+	#Save the localisation of the barycenter
+	with open("localisation.txt","a") as loc:
+	    loc.write(name)
+	    loc.write(str(squaresFoundNumber)+"\n")
+            
 	return graph
